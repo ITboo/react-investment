@@ -51,8 +51,18 @@ export const calculatorSlice = createSlice({
         }
       }
     },
+    changeEntryValue: (state, action: PayloadAction<EntryT>) => {
+      const { id, value } = action.payload;
+      for (const category of CATEGORIES) {
+        const targetEntry = state[category].find((entry) => entry.id === id);
+        if (targetEntry) {
+          targetEntry.value = value;
+          return;
+        }
+      }
+    },
   },
 });
-export const { addEntry, deleteEntry } = calculatorSlice.actions;
+export const { addEntry, deleteEntry, changeEntryValue } = calculatorSlice.actions;
 
 export default calculatorSlice.reducer;
