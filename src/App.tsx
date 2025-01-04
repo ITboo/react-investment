@@ -1,9 +1,15 @@
-import { Container, Grid2 } from "@mui/material";
+import { useAppSelector } from "./redux/hooks";
 
-import "./App.css";
+import CategoryColumn from "./components/CategoryColumn";
 import Entry from "./components/Entry";
 
+import { CATEGORIES } from "./types";
+
+import { Container, Grid2, Typography } from "@mui/material";
+import "./App.css";
+
 function App() {
+  const entry = useAppSelector((store) => store.calculator.remaining);
   return (
     <Container>
       <Grid2 container spacing={2}>
@@ -12,18 +18,16 @@ function App() {
         </Grid2>
       </Grid2>
       <Grid2 container spacing={2}>
-        {new Array(6).fill(null).map((el, index) => (
-          <Grid2 key={index} size={4}>
-            Категория
+        {CATEGORIES.map((category) => (
+          <Grid2 key={category} size={4}>
+            <CategoryColumn category={category} />
           </Grid2>
         ))}
+        <Grid2 key="category remaining">
+          <Typography>Remaining</Typography>
+          <Entry entry={entry} />
+        </Grid2>
       </Grid2>
-      <Entry entry={{
-        id: "",
-        value: 0,
-        type: "",
-        name: ""
-      }} />
     </Container>
   );
 }
