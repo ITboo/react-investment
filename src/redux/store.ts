@@ -3,7 +3,7 @@ import calculatorReducer from './slices/CalculatorSlice'
 
 export const store = configureStore({
   reducer: {
-    calculator: calculatorReducer
+    calculator: calculatorReducer,
   },
 })
 

@@ -1,15 +1,15 @@
-import { useAppSelector } from "./redux/hooks";
+import { useAppSelector } from './redux/hooks'
 
-import CategoryColumn from "./components/CategoryColumn";
-import Entry from "./components/Entry";
+import CategoryColumn from './components/CategoryColumn'
+import Entry from './components/Entry'
 
-import { CATEGORIES } from "./types";
+import { CATEGORIES } from './types'
 
-import { Container, Grid2, Typography } from "@mui/material";
-import "./App.css";
+import { Container, Grid2, Typography } from '@mui/material'
+import './App.css'
 
 function App() {
-  const entry = useAppSelector((store) => store.calculator.remaining);
+  const entry = useAppSelector((store) => store.calculator.remaining)
   return (
     <Container>
       <Grid2 container spacing={2}>
@@ -29,7 +29,7 @@ function App() {
         </Grid2>
       </Grid2>
     </Container>
-  );
+  )
 }
 
-export default App;
+export default App
