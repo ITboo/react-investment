@@ -8,6 +8,7 @@ import {
   EntryT,
   keyIsArrayCategory,
 } from '../../types'
+import { initCalculator } from '../../utils/initCalculator'
 
 const initialState: CalculatorT = {
   income: [],
@@ -25,7 +26,7 @@ const initialState: CalculatorT = {
 
 export const calculatorSlice = createSlice({
   name: 'calculator',
-  initialState,
+  initialState: initCalculator,
   reducers: {
     addEntry: (
       state,
